@@ -1,9 +1,3 @@
-# Author:Samuel Jim Nnamdi
-# Project: Prediction using decisionTree Algorithm
-# Date: April 26th 2019
-
-# Import Libraries
-
 import pandas
 import numpy
 import pickle
@@ -18,14 +12,12 @@ from sklearn.metrics import accuracy_score
 #from yellowbrick.classifier import classificationReport
 
 # Get the dataset and read the dataset
-
 get_dataset = "static/assets/dataset/adult.csv"
 read_dataset = pandas.read_csv(get_dataset)
 
 # filter the data and check for empty values
 # Replace the empty values with the modal value
 # of each column
-
 for col in read_dataset:
 	read_dataset[col] = read_dataset[col].replace("?",numpy.NaN)
 	read_dataset = read_dataset.apply(lambda x:x.fillna(x.value_counts().index[0]))
