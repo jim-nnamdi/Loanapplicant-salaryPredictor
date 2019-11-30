@@ -1,6 +1,6 @@
 ## Loanapplicant salary predictor
 
-![Screenshot](https://github.com/MetroSpinnin/Loanapplicant-salary-predictor/tree/master/app/static/img/result.PNG)
+![prediction_result](https://raw.githubusercontent.com/MetroSpinnin/Loanapplicant-salary-predictor/master/app/static/img/result.PNG)
 
 This open source project is actually a minimalist prediction for fintech companies who give out loans to different individuals, most times these people are meant to fill out forms on how much they recieve as salaries or wages, and users might fill in wrong details in order to collect large loans which they are not able to pay back. This project fills in the users data and the Algorithm automatically predicts the user's salary, if its greater than 50k or not. [prices can be increased, its open source!]
 
