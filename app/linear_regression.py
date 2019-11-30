@@ -24,27 +24,24 @@ for col in read_dataset:
 
 # Perform Data discretization and make data easy
 # to read and Understand more clearly
-
 read_dataset.replace(['Divorced','Married-AF-spouse','Married-civ-spouse','Married-spouse-absent','Never-married','Separated','Widowed'],['divorced','married','married','married','not married','not married','not married'], inplace=True)
 
 # Try to Label Encode the data
-
 category_columns= ['workclass', 'race', 'education','marital-status', 'occupation',               'relationship', 'gender', 'native-country', 'income']
-
 labelEncoder = preprocessing.LabelEncoder()
 
 # Mapping the dictionary of values
-
 mapping_dict = {}
 for col in category_columns:
 	read_dataset[col] = labelEncoder.fit_transform(read_dataset[col])
 	le_name_mapping = dict(zip(labelEncoder.classes_, labelEncoder.transform(labelEncoder.classes_)))
 	mapping_dict = le_name_mapping
+
+# Drop the columns which are not useful in the dataset
 read_dataset=read_dataset.drop(['fnlwgt','educational-num'], axis=1)
 read_dataset.head()
 
 # Fitting the data to be trained
-
 X = read_dataset.values[:,:12]
 y = read_dataset.values[:, 12]
 
@@ -56,46 +53,36 @@ X_train,X_test,y_train,y_test = train_test_split(X,y, test_size = 0.3, random_st
 
 # Train the data using LinearRegression
 # Testdata should be 0.3 -- TrainingData should be 0.7
-
 linear_reg = LinearRegression()
 linear_reg.fit(X_train,y_train)
 prediction_Lreg = linear_reg.predict(X_test)
 
 # Calculate the Accuracy score of our LinearRegression classifier
-
-# print("Accuracy Score using LinearRegression is:", accuracy_score(y_test, prediction_Lreg))
+print("Accuracy Score using LinearRegression is:", accuracy_score(y_test, prediction_Lreg))
 
 # Train the data using LogisticRegression
 # Testdata should be 0.3 -- TrainingData should be 0.7
-
 logistic_reg = LogisticRegression()
 logistic_reg.fit(X_train,y_train)
 prediction_Loreg = logistic_reg.predict(X_test)
 
 # Calculate the Accuracy score of our LinearRegression classifier
-
- # print("Accuracy Score using LogisticRegression is:", accuracy_score(y_test, prediction_Loreg))
+print("Accuracy Score using LogisticRegression is:", accuracy_score(y_test, prediction_Loreg))
 
 # Classification report for linearRegression
-
-'''
 visualiser = classificationReport(linear_reg,classes = ['won','loss'])
 visualiser.fit(X_train,y_train)
 visualiser.score(y_test,prediction_Lreg)
 result = visualiser.poof()
 
 # Classification report for LogisticRegression
-
-'''
-'''
 visualiser = classificationReport(logistic_reg,classes = ['won','loss'])
 visualiser.fit(X_train,y_train)
 visualiser.score(y_test,prediction_Loreg)
 result = visualiser.poof()
-'''
+
 
 # Now lets say that after all our analysis we choose
 # Logistic regression as our algorithm to work with
 # We'll write the model to a pkl file
-
 pickle.dump(logistic_reg,open('model.pkl','wb'))
