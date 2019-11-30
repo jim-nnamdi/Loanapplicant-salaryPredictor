@@ -1,3 +1,7 @@
+# Import the required libraries needed
+# for the application to run via Flask
+# and the Machine learning Model
+
 import os
 import pickle
 import numpy as np 
