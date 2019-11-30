@@ -9,7 +9,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score 
-#from yellowbrick.classifier import classificationReport
+from yellowbrick.classifier import classificationReport
 
 # Get the dataset and read the dataset
 get_dataset = "static/assets/dataset/adult.csv"
@@ -21,6 +21,7 @@ read_dataset = pandas.read_csv(get_dataset)
 for col in read_dataset:
 	read_dataset[col] = read_dataset[col].replace("?",numpy.NaN)
 	read_dataset = read_dataset.apply(lambda x:x.fillna(x.value_counts().index[0]))
+
 
 # Perform Data discretization and make data easy
 # to read and Understand more clearly
@@ -48,8 +49,8 @@ y = read_dataset.values[:, 12]
 # Train the data using DecisionTreeAlgorithm
 # Using the gini index and entropy functions
 # Testdata should be 0.3 -- TrainingData should be 0.7
-
 X_train,X_test,y_train,y_test = train_test_split(X,y, test_size = 0.3, random_state=100)
+
 
 # Train the data using LinearRegression
 # Testdata should be 0.3 -- TrainingData should be 0.7
