@@ -9,3 +9,6 @@ I personally removed most of my data visualization techniques and libraries whic
 
 ## Developer Note
 This project can be written in a more complex way than this with more core advanced features, but the aim is to make this understandable for newbies and for general's to get a grasp on basic features and usuage of some Machine learning skills. You're free to make a pull request.
+
+## How to use the Files
+Make sure you have python installed in your computer system, since the project uses flask make sure the correct flask dependencies are also installed too, then navigate to run the app using `python app.py` command and it would run on your specified port.
