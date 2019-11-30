@@ -1,0 +1,25 @@
+<html>
+
+<!-- I linked my stylesheet straight up from the folder -->
+<link href="{{url_for('static',filename='bootstrap.css')}}" rel="stylesheet"/>
+<body>
+  <br><br>
+
+<!-- Started the content container -->
+<div class="container">
+<div class="row">
+<div class="col-md-8 mx-auto"> 
+
+  <!-- Started the result container: Prediction analysis -->
+  <h3>Hey! prediction complete</h3>
+  <p style="text-align: justify;">Now the results of your prediction is below and it is good to Note that the prediction was done using Decision tree algorithm whilst implementing Logistic regression which is one of the common regression techniques used in Machine Learning. This solution can be implemented using SVC RNN and a host of other techniques, provided the technique and algorithm doesnt overfit or underfit during the Data training and consumption, this project is Open source!
+
+    <!-- Author details and contacts: Removable tho' -->
+    <br><br> Author: Samuel Jim Nnamdi and am a living Weirdo<br> Email: Metro@reachabl.co.uk</p>
+
+<!-- Passed the Jinja templating braces for result display -->
+<div class="alert alert-success"><h3> {{prediction}}</h3> </div>
+</div>
+</div>
+</div>
+  </body>
