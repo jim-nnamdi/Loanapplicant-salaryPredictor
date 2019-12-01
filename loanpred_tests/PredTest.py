@@ -37,4 +37,13 @@ class PredictionTest(unittest.TestCase):
         response = self.app.get('/result')
         self.assertEquals(response.status_code, 200)
         self.assertIsNot(response.status_code, 401)
-        
+
+    # Test that if the results page returns empty 
+    # results which is the data then the page should
+    # throw an exception error 
+
+    def test_empty_dataset_is_not_processed(self):
+        data = { }
+        response = self.app.get('/result')
+        self.assertEquals(response.status_code, 403)
+        self.assertIsNone(response.data)
